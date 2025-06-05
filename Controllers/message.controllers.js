@@ -6,11 +6,10 @@ import { Notification } from "../Models/notification.model.js";
 // import { io } from "../Utils/socket.js";
 import { getIO } from '../Utils/socket.js';
 
-const io = getIO();
 
 export const sendMessage = async (req, res) => {
     const {userId, teamId, text, image} = req.body; 
-
+    
     try {
         const team = await Team.findById(teamId);
         if(!team){
@@ -19,23 +18,23 @@ export const sendMessage = async (req, res) => {
                 message: "Team not found"
             })
         }
-
+        
         const isMember = team.teamMembers.some(member => member.member.toString() === userId)
         const isLeader = team.leader.toString() === userId;
-
+        
         if(!isMember && !isLeader){
             res.status(400).json({
                 success: false,
                 message: "You are not a team member of this team"
             })
         }
- 
+        
         let imageUrl = "";
         if (image) {
-          const uploadResponse = await cloudinary.uploader.upload(image);
-          imageUrl = uploadResponse.secure_url;
+            const uploadResponse = await cloudinary.uploader.upload(image);
+            imageUrl = uploadResponse.secure_url;
         }    
-
+        
         const newMessage = new Message ({
             senderId: userId, 
             receieverId: teamId, 
@@ -44,8 +43,10 @@ export const sendMessage = async (req, res) => {
         })
         
         await newMessage.save(); 
-
+        
         // websocket implementation remaining
+        const io = getIO();
+        
         io.to(teamId).emit("LatestMessage", newMessage);
 
         res.status(201).json(newMessage);
