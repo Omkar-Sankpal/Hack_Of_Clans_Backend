@@ -3,7 +3,10 @@ import { Team } from "../Models/team.model.js";
 import cloudinary from "../Utils/cloudconfig.js";
 import { User } from "../Models/user.model.js";
 import { Notification } from "../Models/notification.model.js";
-import { io } from "../Utils/socket.js";
+// import { io } from "../Utils/socket.js";
+import { getIO } from '../Utils/socket.js';
+
+const io = getIO();
 
 export const sendMessage = async (req, res) => {
     const {userId, teamId, text, image} = req.body; 
