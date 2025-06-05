@@ -6,6 +6,7 @@ import crypto from "crypto";
 import { oauth2Client } from '../Utils/googleConfig.js';
 import axios from 'axios';
 import cloudinary from "../Utils/cloudconfig.js";
+import { log } from 'console';
 
 
 export const signup = async(req, res) => {
@@ -106,7 +107,8 @@ export const login = async(req, res) => {
 		}
 
 		generateTokenSetCookie(res, user._id);
-
+		console.log("User logged in and cookies fun called");
+		
 		user.lastlogin = new Date();
 		await user.save();
 
@@ -249,7 +251,8 @@ export const googleLogin = async(req, res) => {
 		}
 
 		generateTokenSetCookie(res,user._id); 
-
+		console.log("Google log in called and cookie was set !! ");
+		
 		user.lastlogin = new Date();
 		await user.save();
 

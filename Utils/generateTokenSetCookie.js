@@ -8,9 +8,8 @@ export const generateTokenSetCookie = async (res, userId) => {
     // console.log("Token set"); 
 
     res.cookie("hackofclansauth", token, {
-        httpOnly: true, 
-        secure: process.env.NODE_ENV === 'production', 
-        sameSite: "strict", 
+        httpOnly: true,  
+        sameSite: "none",   
         maxAge: 7*24*60*60*1000, 
     })
 
