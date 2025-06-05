@@ -9,7 +9,8 @@ export const generateTokenSetCookie = async (res, userId) => {
 
     res.cookie("hackofclansauth", token, {
         httpOnly: true,  
-        sameSite: "none",   
+        sameSite: "none",
+        secure: true,   
         maxAge: 7*24*60*60*1000, 
     })
 
