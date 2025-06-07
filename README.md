@@ -13,6 +13,7 @@ A scalable backend API built with **Node.js**, **Express**, and **Socket.IO** to
 - **MongoDB Atlas** (for selected data handling)
 - **Cloudinary** (image uploads)
 - **Render** (deployment platform)
+- **Webscrapping** [Scrapping Repo from Soham](https://github.com/pavigupta21/Hack_of_Clans/tree/Scrapping_backend)
 
 ---
 
