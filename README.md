@@ -41,8 +41,6 @@ CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 JWT_SECRET=your_jwt_secret
-SUPABASE_URL=your_supabase_url (optional)
-SUPABASE_KEY=your_supabase_key (optional)
 ```
 
 ### 4. Run locally 
