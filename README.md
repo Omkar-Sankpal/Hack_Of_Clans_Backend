@@ -35,12 +35,17 @@ npm install
 ### 3. Create a .env file
 
 ```bash
-PORT=5000
-MONGO_URI=your_mongodb_uri
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-JWT_SECRET=your_jwt_secret
+MONGO_URI = your mongo url
+PORT = 5000 
+JWT_SECRET = you jwt secret
+CLIENT_URL = http://localhost:5173 || give your url 
+SMTP_USER = your email
+SMTP_PASS = your email application password 
+GOOGLE_CLIENT_ID = OAuth client ID
+GOOGLE_CLIENT_SECRET = OAuth client secret
+CLOUDINARY_CLOUDNAME = your cloud name
+CLOUDINARY_API_KEY = your cloud api key
+CLOUDINARY_API_SECRET = your cloud api secret
 ```
 
 ### 4. Run locally 
